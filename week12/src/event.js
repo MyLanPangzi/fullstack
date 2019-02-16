@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import ReactDom from 'react-dom';
 
 export class List extends Component {
     constructor(props) {
         super(props);
-        this.state = { num: 0 };
+        this.state = {num: 0};
         this.inc = this.inc.bind(this);
     }
+
     inc() {
-        this.setState({ num: this.state.num + 1 });
+        this.setState({num: this.state.num + 1});
     }
+
     render() {
         return (
             <ul>
@@ -19,5 +21,6 @@ export class List extends Component {
         )
     }
 }
+
 export default List;
-ReactDom.render(<List />, document.body);
+ReactDom.render(<List/>, document.body);

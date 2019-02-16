@@ -1,4 +1,3 @@
-const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
@@ -6,10 +5,11 @@ module.exports = {
     devtool: "source-map",
 
     entry: {
-        list : './src/list.js',
-        list2 : './src/list2.js',
-        list3 : './src/list3.js',
-        event : './src/event.js',
+        list: './src/list.js',
+        list2: './src/list2.js',
+        list3: './src/list3.js',
+        event: './src/event.js',
+        time: './src/time.js',
     },
 
     output: {
