@@ -10,6 +10,7 @@ module.exports = {
         list3: './src/list3.js',
         event: './src/event.js',
         time: './src/time.js',
+        customEvent: './src/customEvent.js',
     },
 
     output: {

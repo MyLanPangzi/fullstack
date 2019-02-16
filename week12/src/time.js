@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import ReactDom from "react-dom";
 
-export default class Time extends Component {
+class Time extends Component {
     constructor(props) {
         super(props);
         this.state = {num: 0};
@@ -21,4 +21,5 @@ export default class Time extends Component {
         </div>
     }
 }
+
 ReactDom.render(<Time max={10}/>, document.body);
