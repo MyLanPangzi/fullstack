@@ -11,6 +11,7 @@ module.exports = {
         event: './src/event.js',
         time: './src/time.js',
         customEvent: './src/customEvent.js',
+        key: './src/key.js',
     },
 
     output: {
