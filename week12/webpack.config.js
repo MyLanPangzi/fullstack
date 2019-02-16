@@ -12,6 +12,7 @@ module.exports = {
         time: './src/time.js',
         customEvent: './src/customEvent.js',
         key: './src/key.js',
+        classStyle: './src/classStyle.js',
     },
 
     output: {
