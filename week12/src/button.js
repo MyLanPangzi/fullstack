@@ -1,6 +1,6 @@
 import React from "react";
 
-export default class Buttion extends React.Component {
+export default class Button extends React.Component {
     constructor(props) {
         super(props);
         this.click = this.click.bind(this);

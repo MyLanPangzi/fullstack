@@ -14,6 +14,7 @@ module.exports = {
         key: './src/key.js',
         classStyle: './src/classStyle.js',
         tabs: './src/tabs.js',
+        app : './src/app.js',
     },
 
     output: {

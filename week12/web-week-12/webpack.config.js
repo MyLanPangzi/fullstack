@@ -15,7 +15,7 @@ module.exports = {
 		// list4: "./src/list4.js",
 		// from: "./src/from.js",
     // tabs: "./src/tabs.js",
-		// lr:"./src/LRApp.js",
+		// lr:"./src/app.js",
 		// uilist:"./src/UIListApp.js",
 		router:"./src/router/app.js"
   },

@@ -15,7 +15,7 @@ class TabHead extends Component {
     }
 
     click() {
-        this.props.onClick(this.state.title);
+        this.props.onClick ? this.props.onClick(this.state.title) : '';
     }
     render() {
         return (

@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDom from "react-dom";
-import Buttion from "./button";
+import Button from "./button";
 
 export default class Form extends React.Component {
     constructor(props) {
@@ -28,9 +28,9 @@ export default class Form extends React.Component {
             <div>
                 <form action="#">
                     <textarea readOnly={true} style={this.state.style} value={this.state.value}></textarea>
-                    <Buttion className={'btn'} onDbClick={this.click} value={"red"}/>
-                    <Buttion className={'btn'} onDbClick={this.click} value={"yellow"}/>
-                    <Buttion className={'btn'} onDbClick={this.click} value={"blue"}/>
+                    <Button className={'btn'} onDbClick={this.click} value={"red"}/>
+                    <Button className={'btn'} onDbClick={this.click} value={"yellow"}/>
+                    <Button className={'btn'} onDbClick={this.click} value={"blue"}/>
                 </form>
             </div>
         );
