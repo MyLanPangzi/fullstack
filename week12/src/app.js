@@ -7,19 +7,14 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {};
-        const leftMap = this.props.list.map(e => {
-            const arr = [];
-            arr.push(e.id);
-            arr.push(e);
-            return arr;
-        });
-        this.state.leftMap = new Map(leftMap);
+        this.state.leftMap = new Map(this.props.list.map(e => [e.id, e]));
         this.state.rightMap = new Map();
         this.selectLeft = this.selectLeft.bind(this);
         this.selectRight = this.selectRight.bind(this);
         this.select = this.select.bind(this);
         this.toRight = this.toRight.bind(this);
         this.toLeft = this.toLeft.bind(this);
+        this.move = this.move.bind(this);
     }
 
     select(map, id) {
