@@ -15,7 +15,7 @@ module.exports = {
         // classStyle: './src/classStyle.js',
         // tabs: './src/tabs.js',
         // app : './src/app.js',
-        counterVanilla : './src/counterVanilla.js',
+        counterVanilla : './src/counter-vanilla/index.js',
         // counter : './src/counter.js',
     },
 
