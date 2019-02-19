@@ -5,16 +5,18 @@ module.exports = {
     devtool: "source-map",
 
     entry: {
-        list: './src/list.js',
-        list2: './src/list2.js',
-        list3: './src/list3.js',
-        event: './src/event.js',
-        time: './src/time.js',
-        customEvent: './src/customEvent.js',
-        key: './src/key.js',
-        classStyle: './src/classStyle.js',
-        tabs: './src/tabs.js',
-        app : './src/app.js',
+        // list: './src/list.js',
+        // list2: './src/list2.js',
+        // list3: './src/list3.js',
+        // event: './src/event.js',
+        // time: './src/time.js',
+        // customEvent: './src/customEvent.js',
+        // key: './src/key.js',
+        // classStyle: './src/classStyle.js',
+        // tabs: './src/tabs.js',
+        // app : './src/app.js',
+        counterVanilla : './src/counterVanilla.js',
+        // counter : './src/counter.js',
     },
 
     output: {
