@@ -2,7 +2,7 @@ import React from "react";
 import ReactDom from "react-dom";
 import Li from './li';
 // const React = require("react");
-// const ReactDom = require("react-dom");
+// const ReactDOM = require("react-dom");
 
 class List extends React.Component {
     constructor(props) {
