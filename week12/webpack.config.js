@@ -17,7 +17,8 @@ module.exports = {
         // app : './src/app.js',
         // counterVanilla : './src/counter-vanilla/index.js',
         // counter : './src/counter.js',
-        index: './src/todo/index.js',
+        // index: './src/todo/index.js',
+        index: './src/counter/src/index.js',
     },
 
     output: {
