@@ -115,3 +115,4 @@ console.log('someAny长度：', (someString as string).length);
  */
 let o: object = {};
 // o=1;//Type '1' is not assignable to type 'object
+export {};
