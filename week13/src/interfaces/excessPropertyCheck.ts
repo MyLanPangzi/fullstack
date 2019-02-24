@@ -1,6 +1,6 @@
 /**
  * 过量类型检查，excess property checks
- * 可以使用类型断言（as）绕过，或者使用字符串索引绕过
+ * 可以使用类型断言（as）绕过，或者使用字符串索引绕过，还可以使用变量赋值绕过
  * 尽量不要绕过excess property checks，
  * 这些检查能帮你检查出潜在的BUG
  */
@@ -24,6 +24,7 @@ function createSquare(config: SquareConfig): { color: string; area: number; } {
 
 //使用类型断言as绕过过量属性检查
 // const square = createSquare({colour: 'black', width: 10} as SquareConfig);
-const square = createSquare({colour: 'black', width: 10});
+const tmp = {colour: 'black', width: 10};
+const square = createSquare(tmp);
 console.log(square);
 export {};
