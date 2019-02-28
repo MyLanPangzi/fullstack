@@ -35,3 +35,4 @@ maker.defaultGreeting = '你好，世界';
 const greeter1 = new maker();
 console.log(greeter1.greet());
 console.log(greeter.greet());
+console.log(Greeter.prototype.constructor === Greeter);
