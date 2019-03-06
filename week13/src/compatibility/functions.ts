@@ -3,6 +3,10 @@
  * 2，然后是返回值，源函数返回值必须是目标函数返回值的子类型
  * 3，满足上面2个条件，函数就是兼容的
  * 4，函数参数可以双向协变，即声明一个类型，可传入兼容类型，有点类似于多态，用基类声明，可传入派生类
+ * 5，可选与必选参数是可互换的，rest参数是一个无边界的可选参数数组，意思是同参数列表的函数（返回值兼容），不管参数是不是可选都是兼容的。
+ * let optional: (x: number, y: number) => number = (x, y) => x + y;
+ * let required: (x: number, y?: number) => number = (x, y) => x + y;
+ * 这两个可以相互赋值
  */
 let x = (a: number): string => 'a';
 // let x = (a: number): undefined => undefined;
@@ -44,3 +48,37 @@ listenEvent(EventType.Keyboard, (e: KeyEvent) => {
 });
 // listenEvent(EventType.Mouse,( e:{timestamp:number}) => {});
 // listenEvent(EventType.Mouse,( e:number) => {});//error
+
+function invokeLater(args: any[], callback: (...args: any[]) => void) {
+    callback(...args);
+}
+
+invokeLater([1, 2], (x, y) => console.log(x, y));
+let optional: (x: number, y: number) => number = (x, y) => x + y;
+let required: (x: number, y?: number) => number = (x, y) => x + y;
+optional = required;
+required = optional;
+
+
+function overloadSrc(arg: number): number
+function overloadSrc(arg: string): string
+function overloadSrc(arg: string | number): any {
+    if (typeof arg === 'string') {
+        return arg.concat('字符串');
+    }
+    if (typeof arg === 'number') {
+        return arg + 1;
+    }
+}
+
+// let overloadDest: (arg: string | number | null | undefined) => any;
+let overloadDest: (arg: string) => void;
+let overloadDest2: (arg: number) => void;
+let overloadDest3: (arg: number | string) => void;
+overloadDest = overloadSrc;
+overloadDest2 = overloadSrc;
+overloadDest3 = overloadSrc;
+console.log(overloadDest('aa'));
+console.log(overloadDest2(1));
+console.log(overloadDest3(2));
+console.log(overloadDest3('bb'));
