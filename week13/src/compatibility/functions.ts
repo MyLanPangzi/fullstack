@@ -7,6 +7,26 @@
  * let optional: (x: number, y: number) => number = (x, y) => x + y;
  * let required: (x: number, y?: number) => number = (x, y) => x + y;
  * 这两个可以相互赋值
+ * 6，函数重载，手册写的是，每一个重载声明必须在目标函数有对应的兼容签名（为了保证在源函数出现的地方，目标函数也能出现），实测貌似没有这个限制。
+ * function overloadSrc(arg: number): number
+ function overloadSrc(arg: string): string
+ function overloadSrc(arg: string | number): any {
+    if (typeof arg === 'string') {
+        return arg.concat('字符串');
+    }
+    if (typeof arg === 'number') {
+        return arg + 1;
+    }
+}
+
+ // let overloadDest: (arg: string | number | null | undefined) => any;
+ let overloadDest: (arg: string) => void;
+ let overloadDest2: (arg: number) => void;
+ let overloadDest3: (arg: number | string) => void;
+ overloadDest = overloadSrc;
+ overloadDest2 = overloadSrc;
+ overloadDest3 = overloadSrc;
+
  */
 let x = (a: number): string => 'a';
 // let x = (a: number): undefined => undefined;
@@ -78,6 +98,7 @@ let overloadDest3: (arg: number | string) => void;
 overloadDest = overloadSrc;
 overloadDest2 = overloadSrc;
 overloadDest3 = overloadSrc;
+
 console.log(overloadDest('aa'));
 console.log(overloadDest2(1));
 console.log(overloadDest3(2));
