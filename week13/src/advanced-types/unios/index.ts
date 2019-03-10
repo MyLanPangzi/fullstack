@@ -7,16 +7,17 @@ function padLeft(value: string, padding: string | number) {
     if (typeof padding === 'number') {
         console.log(padding - 1);
         return Array(padding + 1).join(' ').concat(value);
-    }
-    if (typeof padding === 'string') {
-        // console.log(padding - 1);//TS2362: The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+    } else {
         return padding.concat(value);
     }
-    throw new Error('padding只能是字符串或数字,错误padding:'.concat(padding));
 }
 
 padLeft('a', 5);
 padLeft('a', 'aaaa');
+// padLeft('a', null);
+// padLeft('a', undefined);
+// padLeft('a', {} as any);
+// padLeft('a', {} as never);
 
 // padLeft('a', false);//TS2345: Argument of type 'false' is not assignable to parameter of type 'string | number'.
 interface Fish {
