@@ -3,3 +3,4 @@ node_modules
 /.idea/**
 /redux-examples
 /**/lib/**
+/react-devtools
