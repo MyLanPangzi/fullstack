@@ -15,17 +15,15 @@ interface FileterableProductTableState {
 type FilterableProductTableProp = { products: Product[] };
 
 class FilterableProductTable extends Component<FilterableProductTableProp, FileterableProductTableState> {
-    private handelFilterTextChange = (e: React.ChangeEvent) => {
-        const target = e.target as HTMLInputElement;
+    private handelFilterTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
-            filterText: target.value
+            filterText: e.target.value
         });
 
     };
-    private handleInStockOnlyChecked = (e: React.ChangeEvent) => {
-        const target = e.target as HTMLInputElement;
+    private handleInStockOnlyChecked = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
-            inStockOnly: target.checked
+            inStockOnly: e.target.checked
         });
     };
 
