@@ -22,7 +22,7 @@ interface CalculatorState {
     value: string;
     scale: string;
 
-    onChange?(scale: string, e?: React.ChangeEvent<HTMLInputElement>): void;
+    onChange?(e: React.ChangeEvent<HTMLInputElement>): void;
 }
 
 export class Calculator extends Component<{}, CalculatorState> {
@@ -34,10 +34,17 @@ export class Calculator extends Component<{}, CalculatorState> {
         }
     }
 
-    private handleChange = (scale: string, e?: React.ChangeEvent<HTMLInputElement>) => {
+    private handleFahrenheitChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         this.setState({
-            scale,
-            value: e!.target.value
+            scale: 'f',
+            value: e.target.value
+        })
+    };
+
+    private handleCelsiusChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        this.setState({
+            scale: 'c',
+            value: e.target.value
         })
     };
 
@@ -47,8 +54,8 @@ export class Calculator extends Component<{}, CalculatorState> {
         const fahrenheit = scale === 'c' ? tryConvert(value, toFahrenheit) : value;
         return (
             <div>
-                <TemperatureInput value={celsius} scale={'c'} onChange={this.handleChange}/>
-                <TemperatureInput value={fahrenheit} scale={'f'} onChange={this.handleChange}/>
+                <TemperatureInput value={celsius} scale={'c'} onChange={this.handleCelsiusChange}/>
+                <TemperatureInput value={fahrenheit} scale={'f'} onChange={this.handleFahrenheitChange}/>
                 <BoilingVerdict value={Number.parseFloat(celsius)}/>
             </div>
         );
@@ -58,7 +65,7 @@ export class Calculator extends Component<{}, CalculatorState> {
 const TemperatureInput: FC<CalculatorState> = ({value, scale, onChange}) => (
     <fieldset>
         <legend>Enter temperature in {scale === 'c' ? 'Celsius' : 'Fahrenheit'}</legend>
-        <input type='text' value={value} onChange={e => onChange!(scale, e)}/>
+        <input type='text' value={value} onChange={onChange}/>
     </fieldset>
 );
 const BoilingVerdict: FC<{ value: number }> = ({value}) => (
