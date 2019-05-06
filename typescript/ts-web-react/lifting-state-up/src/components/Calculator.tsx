@@ -55,15 +55,12 @@ export class Calculator extends Component<{}, CalculatorState> {
     }
 }
 
-const TemperatureInput: FC<CalculatorState> = ({value, scale, onChange}) => {
-
-    return (
-        <fieldset>
-            <legend>Enter temperature in {scale === 'c' ? 'Celsius' : 'Fahrenheit'}</legend>
-            <input type='text' value={value} onChange={e => onChange!(scale, e)}/>
-        </fieldset>
-    );
-}
+const TemperatureInput: FC<CalculatorState> = ({value, scale, onChange}) => (
+    <fieldset>
+        <legend>Enter temperature in {scale === 'c' ? 'Celsius' : 'Fahrenheit'}</legend>
+        <input type='text' value={value} onChange={e => onChange!(scale, e)}/>
+    </fieldset>
+);
 const BoilingVerdict: FC<{ value: number }> = ({value}) => (
     value >= 100 ? <p>The water would boil.</p> : <p>The water would not boil.</p>
 );
