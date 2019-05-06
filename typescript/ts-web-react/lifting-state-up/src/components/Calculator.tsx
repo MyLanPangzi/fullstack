@@ -1,5 +1,4 @@
 import React, {Component, FC} from 'react';
-import {on} from "cluster";
 
 function toCelsius(fahrenheit: number): number {
     return (fahrenheit - 32) * 5 / 9;
