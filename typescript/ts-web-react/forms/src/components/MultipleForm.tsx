@@ -35,7 +35,6 @@ export class MultipleForm extends Component<{}, MultipleFormState> {
     render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
         return (
             <form>
-
                 Banana:<input name={'foods'} type='checkbox' value={'banana'} onChange={this.handleFoodsChange}/><br/>
                 Orange:<input name={'foods'} type='checkbox' value={'orange'} onChange={this.handleFoodsChange}/><br/>
                 Apple:<input name={'foods'} type='checkbox' value={'apple'} onChange={this.handleFoodsChange}/><br/>
