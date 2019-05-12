@@ -20,7 +20,7 @@ export class App extends Component<{}, ThemeContextType> {
 
     render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
         return (
-            <div>
+            <div>{/*很诡异，Provider定义的是一个函数接口，但不能调用*/}
                 <ThemeContext.Provider value={this.state}>
                     <ThemeTogglerButton />
                 </ThemeContext.Provider>
