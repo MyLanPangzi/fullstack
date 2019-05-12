@@ -1,51 +1,44 @@
-import React, {Component, ContextType, createContext, FC} from "react";
+import React, {Component} from "react";
+import {ThemeButton} from "./ThemedButton";
+import {Theme, themes, ThemeContext} from "./ThemeContext";
 
-const ThemeContext = createContext<string>('red');
-const Provider = ThemeContext.Provider;
+class Toolbar extends Component<{ changeTheme(): void; }> {
+    render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
+        return (
+            <ThemeButton onClick={this.props.changeTheme}>
+                Change Theme
+            </ThemeButton>
+        );
+    }
+}
 
-export class App extends Component<{}, { theme: string }> {
-    private handleClick = (theme: string) => {
-        this.setState({theme: theme});
-    };
-
+export class App extends Component<{}, { theme: Theme }> {
     constructor(props: any) {
         super(props);
         this.state = {
-            theme: 'red'
+            theme: themes.light
         }
     }
+
+    private toggleTheme = () => {
+        this.setState({
+            theme: this.state.theme !== themes.light ? themes.light : themes.dark
+        });
+    };
 
     render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
         return (
             <div>
-                <Provider value={this.state.theme}>
-                    <Toolbar onClick={this.handleClick}/>
-                </Provider>
+                <ThemeContext.Provider value={this.state.theme}>
+                    <Toolbar changeTheme={this.toggleTheme}/>
+                </ThemeContext.Provider>
+                <section>
+                    <ThemeButton>
+                        Default Theme
+                    </ThemeButton>
+                </section>
             </div>
         );
     }
-}
 
-type ToolbarProp = {
-    onClick(theme: string): void;
-}
-const Toolbar: FC<ToolbarProp> = ({onClick}) => (
-    <nav>
-        <Button text={'red'} onClick={onClick}/>
-        <Button text={'yellow'} onClick={onClick}/>
-        <Button text={'blue'} onClick={onClick}/>
-    </nav>
-);
-
-class Button extends Component<{ text: string; onClick(theme: string): void; }> {
-    static contextType = ThemeContext;
-    context!: ContextType<typeof Button.contextType>;
-    private handleClick = () => this.props.onClick(this.props.text);
-
-    render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
-
-        return (
-            <button style={{color: this.context}} onClick={this.handleClick}>{this.props.text}</button>
-        );
-    }
 }
