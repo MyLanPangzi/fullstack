@@ -11,7 +11,7 @@ interface GameState {
     boom: boolean;
 }
 
-class Game extends Component<{}, GameState> {
+export class Game extends Component<{}, GameState> {
     constructor(props: any) {
         super(props);
         this.state = {
