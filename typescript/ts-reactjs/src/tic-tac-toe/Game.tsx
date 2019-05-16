@@ -28,7 +28,7 @@ export class Game extends Component<{}, GameState> {
         const rows = new Array<Array<string>>(3).fill(new Array<string>(3).fill(''));
         this.state = {
             history: [{squares: rows}],
-            moves: [[-1,-1]],
+            moves: [[-1, -1]],
             stepNumber: 0,
             xIsNext: true,
             color: 'black',
@@ -69,9 +69,10 @@ export class Game extends Component<{}, GameState> {
             status = `Winner is ${winner}`;
         }
         const moves = history.map((e, i) => {
-
+            const text = i === 0 ? 'start' : `${i} + ${this.state.moves[i].join(',')}`;
             return (<li key={i}>
-                <button onClick={() => this.jumpTo(i)}>{`Game move to ${i === 0 ? 'start' : `${i} + ${this.state.moves[i].join(',')}`} `} </button>
+                <button
+                    onClick={() => this.jumpTo(i)}>{`Game move to ${text} `} </button>
             </li>)
         });
         return (
