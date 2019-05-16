@@ -4,39 +4,54 @@ import './index.css';
 import {ThemeContext} from "./ThemeContext";
 
 interface GameState {
-    history: { squares: string[] }[];
+    history: History[];
+    moves: number[][];
     xIsNext: boolean;
     stepNumber: number;
     color: string;
     boom: boolean;
 }
 
+interface History {
+    squares: string[][]
+}
+
+// Display the location for each move in the format (col, row) in the move history list.
+//     Bold the currently selected item in the move list.
+//     Rewrite Board to use two loops to make the squares instead of hardcoding them.
+//     Add a toggle button that lets you sort the moves in either ascending or descending order.
+//     When someone wins, highlight the three squares that caused the win.
+//     When no one wins, display a message about the result being a draw.
 export class Game extends Component<{}, GameState> {
     constructor(props: any) {
         super(props);
+        const rows = new Array<Array<string>>(3).fill(new Array<string>(3).fill(''));
         this.state = {
-            history: [{squares: new Array<string>(9).fill('')}],
+            history: [{squares: rows}],
+            moves: [[-1,-1]],
             stepNumber: 0,
             xIsNext: true,
-            color: 'yellow',
+            color: 'black',
             boom: false
         }
     }
 
-    private calculateWinner(squares: string[]): string | null {
+    private calculateWinner(squares: Array<Array<string>>): string | null {
         const lines = [
-            [0, 1, 2],
-            [3, 4, 5],
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6]
+            [[0, 0], [1, 0], [2, 0]],
+            [[0, 1], [1, 1], [2, 1]],
+            [[0, 2], [1, 2], [2, 2]],
+
+            [[0, 0], [0, 1], [0, 2]],
+            [[1, 0], [1, 1], [1, 2]],
+            [[2, 0], [2, 1], [2, 2]],
+
+            [[0, 0], [1, 1], [2, 2]],
+            [[0, 2], [1, 1], [2, 0]]
         ];
-        for (let [a, b, c] of lines) {
-            if (squares[a] && squares[a] === squares[b] && squares[b] === squares[c]) {
-                return squares[a];
+        for (let [[a, b], [c, d], [e, f]] of lines) {
+            if (squares[a][b] && squares[a][b] === squares[c][d] && squares[e][f] === squares[c][d]) {
+                return squares[a][b];
             }
         }
         return null;
@@ -54,15 +69,16 @@ export class Game extends Component<{}, GameState> {
             status = `Winner is ${winner}`;
         }
         const moves = history.map((e, i) => {
+
             return (<li key={i}>
-                <button onClick={() => this.jumpTo(i)}>{`Game move to ${i === 0 ? 'start' : i}`} </button>
+                <button onClick={() => this.jumpTo(i)}>{`Game move to ${i === 0 ? 'start' : `${i} + ${this.state.moves[i].join(',')}`} `} </button>
             </li>)
         });
         return (
             <ThemeContext.Provider value={this.state.color}>
                 <div className="game">
                     <div className="game-board">
-                        {<Board squares={squares} onClick={i => this.handleOnClick(i)}/>}
+                        {<Board squares={squares} onClick={(row, column) => this.handleOnClick(row, column)}/>}
                     </div>
                     <div className="game-info">
                         <div>{status}</div>
@@ -83,16 +99,19 @@ export class Game extends Component<{}, GameState> {
 
     private changeTheme = (color: string) => this.setState({color});
 
-    private handleOnClick(i: number) {
+    private handleOnClick(r: number, c: number) {
         const history = this.state.history.slice(0, this.state.stepNumber + 1);
         const squares = history[history.length - 1].squares.slice();
-
-        if (squares[i] || this.calculateWinner(squares)) {
+        if (squares[r][c] || this.calculateWinner(squares)) {
             return;
         }
 
-        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        const moves = this.state.moves.slice();
+        moves[this.state.stepNumber + 1] = [r, c];
+        squares[r] = squares[r].slice();
+        squares[r][c] = this.state.xIsNext ? 'X' : 'O';
         this.setState({
+            moves,
             history: history.concat([{squares}]),
             xIsNext: !this.state.xIsNext,
             stepNumber: history.length

@@ -3,35 +3,28 @@ import Square from './Square';
 import './index.css';
 
 interface BoardProp {
-    squares: string[];
+    squares: string[][];
 
-    onClick(i: number): void;
+    onClick(i: number, j: number): void;
 }
 
 const Board: React.FC<BoardProp> = (props) => {
-
-    const renderSquare = (i: number) => (<Square
-        value={props.squares[i]}
-        onClick={() => props.onClick(i)}
-    />)
+    const rows = props.squares.map((row, rowIndex) => (
+            <div className="board-row" key={rowIndex.toString()}>
+                {
+                    row.map((column, columnIndex) => (
+                            <Square key={`${rowIndex}-${columnIndex}`} value={column}
+                                    onClick={() => props.onClick(rowIndex, columnIndex)}/>
+                        )
+                    )
+                }
+            </div>
+        )
+    );
 
     return (
         <div>
-            <div className="board-row">
-                {renderSquare(0)}
-                {renderSquare(1)}
-                {renderSquare(2)}
-            </div>
-            <div className="board-row">
-                {renderSquare(3)}
-                {renderSquare(4)}
-                {renderSquare(5)}
-            </div>
-            <div className="board-row">
-                {renderSquare(6)}
-                {renderSquare(7)}
-                {renderSquare(8)}
-            </div>
+            {rows}
         </div>
     );
 };
