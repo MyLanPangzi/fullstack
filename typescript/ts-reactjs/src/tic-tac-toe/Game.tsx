@@ -70,6 +70,8 @@ export class Game extends Component<{}, GameState> {
         let status = `Next player is ${this.state.xIsNext ? 'X' : 'O'}`;
         if (winner) {
             status = `Winner is ${squares[winner[0][0]][winner[0][1]]}`;
+        }else if (this.state.stepNumber === 9) {
+            status = 'No winner. Draw!';
         }
         let moves: ReactNode[] = [];
         if (this.state.sort === 'desc') {
