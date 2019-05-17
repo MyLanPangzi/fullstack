@@ -5,13 +5,14 @@ import {ThemeContext} from './ThemeContext';
 type SquareProp = {
     value: string;
     onClick(): void;
+    isWinner: boolean;
 }
-const Square: React.FC<SquareProp> = (props) => (
+const Square: React.FC<SquareProp> = ({value, onClick, isWinner}) => (
     <ThemeContext.Consumer>
         {
             (color) => (
-                <button className='square' onClick={props.onClick} style={{color}}>
-                    {props.value}
+                <button className='square' onClick={onClick} style={isWinner ? {color: 'red'} : {color}}>
+                    {value}
                 </button>
             )
         }
