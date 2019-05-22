@@ -8,8 +8,7 @@ import * as serviceWorker from './serviceWorker';
 import {Menu} from "./ultimate-react-component-patterns/Menu";
 
 // ReactDOM.render(<App/>, document.getElementById('root'));
-ReactDOM.render(<Menu/>,
-    document.getElementById('root'));
+ReactDOM.render(<Menu/>,document.getElementById('root'));
 
 serviceWorker.register();
 

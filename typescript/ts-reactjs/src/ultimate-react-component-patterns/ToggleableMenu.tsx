@@ -1,14 +1,11 @@
 import React, {FC} from "react";
 import {Toggleable} from "./Toggleable";
 
-type Props = { title: string; };
-export const ToggleableMenu: FC<Props> = ({title, children}) => (
-    <Toggleable render={({toggle, show}) => (
-        <div style={{textAlign: 'center', margin: '10px'}}>
-            <div onClick={toggle}>
-                {title}
-            </div>
-            <p>{show ? children : null}</p>
+export const ToggleableMenu: FC<{ title: string; }> = ({title, children}) => (
+    <Toggleable render={({show, toggle}) => (
+        <div onClick={toggle} style={{textAlign: 'center', margin: '5px'}}>
+            <h1>{title}</h1>
+            {show ? <p>{children}</p> : null}
         </div>
     )}/>
-)
+);
