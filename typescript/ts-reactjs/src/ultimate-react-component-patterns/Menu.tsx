@@ -4,8 +4,8 @@ import {ToggleableMenu, ToggleMenuViaComponentInjection} from "./ToggleableMenu"
 export const Menu: FC = () => (
     <>
         <ToggleableMenu title={'One'}>A</ToggleableMenu>
-        <ToggleableMenu title={'Two'}>B</ToggleableMenu>
-        <ToggleableMenu title={'Three'}>Render Callback</ToggleableMenu>
-        <ToggleMenuViaComponentInjection title={'Four'}>ToggleMenuViaComponentInjection</ToggleMenuViaComponentInjection>
+        <ToggleableMenu title={'Children Function'}>Children Function</ToggleableMenu>
+        <ToggleableMenu title={'Render Callback'}>Render Callback</ToggleableMenu>
+        <ToggleMenuViaComponentInjection title={'ComponentInjection'}>ComponentInjection</ToggleMenuViaComponentInjection>
     </>
 );

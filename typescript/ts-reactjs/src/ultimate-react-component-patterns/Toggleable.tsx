@@ -4,13 +4,13 @@ import {isFunction} from "./util";
 const initialState = {show: true};
 type State = Readonly<typeof initialState>;
 
+const defaultProps = {props: {} as { [index: string]: any }};
+type DefaultProps = typeof defaultProps;
 export type ToggleableComponentProps<P extends {} = {}> = {
     show: State['show'];
     toggle: Toggleable['toggle'];
 } & P;
 type RenderCallback = (props: ToggleableComponentProps) => JSX.Element;
-const defaultProps = {props: {} as { [index: string]: any; }};
-type DefaultProps = typeof defaultProps;
 type Props = Partial<{
     render: RenderCallback;
     children: RenderCallback | ReactNode;
@@ -22,11 +22,11 @@ export class Toggleable extends Component<Props, State> {
     private toggle = () => this.setState(updateState);
 
     render(): React.ReactElement<any, string | React.JSXElementConstructor<any>> | string | number | {} | React.ReactNodeArray | React.ReactPortal | boolean | null | undefined {
-        const {component: InjectionComponent, render, children, props} = this.props;
+        const {render, children, component: InjectionComponent, props} = this.props;
         const renderProps = {show: this.state.show, toggle: this.toggle};
         if (InjectionComponent) {
             return (
-                <InjectionComponent {...props}{...renderProps}>
+                <InjectionComponent {...props} {...renderProps}>
                     {children}
                 </InjectionComponent>
             )
