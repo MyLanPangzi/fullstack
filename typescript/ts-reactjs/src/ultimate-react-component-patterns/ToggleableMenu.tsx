@@ -16,8 +16,9 @@ export const ToggleableMenu: FC<{ title: string; }> = ({title, children}) => (
     )}/>
 );
 
+const ToggleableWithTitle = Toggleable.ofType<MenuItemProps>();
 export const ToggleMenuViaComponentInjection: FC<MenuItemProps> = ({title, children}) => (
-    <Toggleable component={MenuItem} props={{title}}>
+    <ToggleableWithTitle component={MenuItem} props={{title}}>
         {children}
-    </Toggleable>
+    </ToggleableWithTitle>
 );
