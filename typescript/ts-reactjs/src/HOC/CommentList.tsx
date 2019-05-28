@@ -1,5 +1,4 @@
-import React, {Component, FC} from "react";
-import {DataSource} from "./DataSource";
+import React, {FC} from "react";
 
 export interface Comment {
     id: number;
