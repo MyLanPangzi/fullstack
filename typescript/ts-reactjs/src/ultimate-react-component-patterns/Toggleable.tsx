@@ -34,6 +34,7 @@ export class Toggleable<T extends {} = {}> extends Component<Props<T>, State> {
         const renderProps = {show: this.state.show, toggle: this.toggle};
         if (InjectionComponent) {
             return (
+                //这是个BUG，交叉类型不能传递泛型。。。
                 <InjectionComponent {...props as T} {...renderProps}>
                     {children}
                 </InjectionComponent>
