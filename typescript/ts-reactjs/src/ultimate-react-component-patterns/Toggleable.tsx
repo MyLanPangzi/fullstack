@@ -14,7 +14,7 @@ type RenderCallback = (props: ToggleableComponentProps) => JSX.Element;
 type Props<P extends {} = {}> = Partial<{
     render: RenderCallback;
     children: RenderCallback | ReactNode;
-    component: ComponentType<ToggleableComponentProps<any>>;
+    component: ComponentType<ToggleableComponentProps<P>>;
 } & DefaultProps<P>>;
 
 type Constructor<T> = new(...args: any[]) => T;
@@ -34,7 +34,7 @@ export class Toggleable<T extends {} = {}> extends Component<Props<T>, State> {
         const renderProps = {show: this.state.show, toggle: this.toggle};
         if (InjectionComponent) {
             return (
-                <InjectionComponent {...props} {...renderProps}>
+                <InjectionComponent {...props as T} {...renderProps}>
                     {children}
                 </InjectionComponent>
             )
