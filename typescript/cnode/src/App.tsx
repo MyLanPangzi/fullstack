@@ -7,6 +7,8 @@ const App: React.FC = () => {
     return (
         <div className="app">
             <MainHeader/>
+            <main className={'main'}>
+            </main>
             <MainFooter/>
         </div>
     );

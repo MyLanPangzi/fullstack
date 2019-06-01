@@ -5,7 +5,7 @@ class MainFooter extends Component {
     render() {
         return (
             <Layout.Footer>
-
+footer
             </Layout.Footer>
         );
     }

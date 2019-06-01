@@ -4,18 +4,24 @@
     color: blue;
 }
 
+.app {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
 Wrap {
     margin: 0 auto;
     width: 980px;
 }
 
-.app {
-    height: 100vh;
+.main {
+    flex: 1;
 }
 
 .Divider {
     float: left;
-    margin: 10px ;
+    margin: 10px;
     height: 3em;
 }
 
@@ -23,6 +29,7 @@ Wrap {
     float: left;
     margin-top: 10px;
 }
+
 .Dropdown {
     width: auto;
     position: absolute;
