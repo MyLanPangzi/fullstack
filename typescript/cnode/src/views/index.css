@@ -12,3 +12,20 @@ Wrap {
 .app {
     height: 100vh;
 }
+
+.Divider {
+    float: left;
+    margin: 10px ;
+    height: 3em;
+}
+
+.Menu {
+    float: left;
+    margin-top: 10px;
+}
+.Dropdown {
+    width: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
