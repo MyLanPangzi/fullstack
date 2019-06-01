@@ -1,0 +1,14 @@
+#logo {
+    text-align: center;
+    margin-bottom: 0px;
+    color: blue;
+}
+
+Wrap {
+    margin: 0 auto;
+    width: 980px;
+}
+
+.app {
+    height: 100vh;
+}
