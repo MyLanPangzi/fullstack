@@ -19,7 +19,6 @@ export class RouterIndex extends Component {
                 <Route path={'/about'} component={About}/>
                 <Route path={'/user'} component={User}/>
                 <Route path={'/details'} component={Details}/>
-
             </Switch>
         );
     }

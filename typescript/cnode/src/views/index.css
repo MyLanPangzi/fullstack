@@ -17,6 +17,15 @@ Wrap {
 
 .main {
     flex: 1;
+    border: 2px solid black;
+}
+
+.Nav {
+    padding-left: 50px;
+}
+
+.Nav ul {
+    border: none;
 }
 
 .Divider {
@@ -35,4 +44,8 @@ Wrap {
     position: absolute;
     top: 0;
     right: 0;
+}
+.content{
+    border-left: 3px solid black;
+    height: 500px;
 }

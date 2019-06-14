@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
-import {Button} from "./refs/CustomTextInput";
+import {App} from "./cat-food-calculator/App";
 
-ReactDOM.render(<Button/>, document.getElementById('root'));
+ReactDOM.render(<App/>, document.getElementById('app'));
 
 serviceWorker.register();
