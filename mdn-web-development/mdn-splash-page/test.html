@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+</head>
+<body>
+<img src="mozilla-logo-400.jpg"
+     alt="mozilla LOGO"
+     srcset="mozilla-logo-120.jpg 120w, mozilla-logo-400.jpg 400w "
+     sizes="(max-width: 150px) 120px, (max-width: 480px) 480px, 480px">
+<picture>
+    <source type="image/jpg" media="(max-width: 600px)" srcset="raccoon-600.jpg">
+    <source type="image/jpg" media="(min-width: 601px)" srcset="raccoon-1200.jpg">
+    <img src="raccoon-600.jpg" alt="浣熊">
+</picture>
+</body>
+</html>
