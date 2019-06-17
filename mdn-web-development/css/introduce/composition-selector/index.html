@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Combinators</title>
+    <style>
+        ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        ul a {
+            text-decoration: none;
+            display: block;
+            color: black;
+            background-color: red;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        ul a:hover {
+            color: red;
+            background-color: black;
+        }
+
+        h1 + p {
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<!--Style links, but only links that are inside the unordered list.-->
+<!--Style links inside the unordered list, but only when they are being hovered over.-->
+<!--Style only the paragraph that comes directly after the top-level heading.-->
+<ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Portfolio</a></li>
+    <li><a href="#">About</a></li>
+</ul>
+
+<h1>Welcome to my website</h1>
+
+<p>Hello, and welcome! I hope you enjoy your time here.</p>
+
+<h2>My philosophy</h2>
+
+<p>I am a believer in chilling out, and not getting grumpy. I think everyone else should follow this ideal, and <a
+        href="#">drink green tea</a>.</p>
+</body>
+</html>

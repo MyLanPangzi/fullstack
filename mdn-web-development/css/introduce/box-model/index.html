@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Box Model</title>
+    <style>
+        /* General styles */
+        body {
+            margin: 0;
+        }
+
+        #wrapper * {
+            padding: 20px;
+            font-size: 20px;
+            border: 20px solid rgba(0,0,0,0.5);
+        }
+
+        /* specific boxes */
+
+        #wrapper header, #wrapper footer {
+            background-color: blue;
+            color: white;
+        }
+
+        #wrapper main {
+            background-color: yellow;
+            width: 300px;
+            box-sizing: content-box;
+        }
+
+        #wrapper header {
+
+        }
+
+        #wrapper footer {
+
+        }
+        #example {
+            width: 300px;
+            height: 200px;
+            border: 25px solid #E8C48F;
+            padding: 20px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <header>Header</header>
+    <main id="main">
+        Main contentMain contentMain contentMain contentMain contentMain contentMain contentMain contentMain contentMain contentMain contentMain contentMain content
+        Main content
+        Main content
+        Main content
+        Main content
+    </main>
+    <footer>Footer</footer>
+    <div id="example">
+        ...Text...
+    </div>
+
+</div>
+<script
+        src="http://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
+<script>
+    console.log($('#main').height());
+</script>
+</body>
+</html>

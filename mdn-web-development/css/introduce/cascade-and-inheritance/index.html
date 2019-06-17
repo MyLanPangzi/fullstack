@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cascade an Inheritance</title>
+    <style>
+        #outer #inner .nav a {
+            background-color: initial;
+            color: initial;
+        }
+
+        #outer div ul .nav a {
+            background-color: blue;
+            padding: 5px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+
+        div div li a {
+            color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+<div id="outer" class="container">
+    <div id="inner" class="container">
+        <ul>
+            <li class="nav"><a href="#">One</a></li>
+            <li class="nav"><a href="#">Two</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
