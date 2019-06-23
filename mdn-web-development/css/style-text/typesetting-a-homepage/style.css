@@ -131,8 +131,12 @@ nav ul li a {
     line-height: 3;
     width: 100%;
 }
-nav ul li a:hover {
+nav ul li a:focus, nav ul li a:hover {
     background: rgb(255, 142, 171);
     color: white;
+}
+nav ul li a:active {
+    background: rgb(255, 194, 163);
+    color: red;
 }
 /*样式化你的导航栏菜单，使它拥有与页面整体相匹配的外观。*/
