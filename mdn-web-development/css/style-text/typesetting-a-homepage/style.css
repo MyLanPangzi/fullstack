@@ -66,16 +66,16 @@ section > h2 + p {
     padding: 20px; /*为每个标题后、<section>元素中的第一段文字设置20px的文本缩进。*/
 }
 
-a:link, a:visited, a:focus, a:hover {
-    color: #a66; /*设置 link, visited, focus, 和 hover 状态设置颜色，与页面顶部和底部的水平线颜色相同。*/
-}
-
 a:link {
     text-decoration: underline;
+}
+a:link, a:visited {
+    color: #a66; /*设置 link, visited, focus, 和 hover 状态设置颜色，与页面顶部和底部的水平线颜色相同。*/
 }
 
 a:focus, a:hover {
     text-decoration: none; /*设置链接默认带下划线，但hover和focus时下划线消失。*/
+    color:blue;
 }
 
 a:focus {
@@ -102,7 +102,7 @@ li, p {
 每个列表项应该有同样的与段落行相同的line-height 。
 每个列表上下间距应该与段落间距相同。*/
 ol, ul, p {
-    margin: 1rem 0;
+    margin: 1.6rem 0;
 }
 
 /*使用与页面设计匹配的bullet列表项符号。你可以选择自定义的bullet图像或者其他的喜欢的bullet符号。*/
@@ -129,6 +129,7 @@ nav ul li a {
     text-align: center;
     margin-bottom: 50%;
     line-height: 3;
+    font-size: 2rem;
     width: 100%;
 }
 nav ul li a:focus, nav ul li a:hover {
