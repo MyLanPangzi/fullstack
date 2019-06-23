@@ -1,0 +1,52 @@
+/* General setup */
+@font-face {
+    font-family: 'ciclefina';
+    src: url("./fonts/cicle_fina-webfont.eot") format('embedded-opentype'),
+    url("./fonts/cicle_fina-webfont.ttf") format('truetype'),
+    url("./fonts/cicle_fina-webfont.woff") format('woff'),
+    url("./fonts/cicle_fina-webfont.woff2") format('woff2');
+    font-style: italic;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'zantrokeregular';
+    src: url("./fonts/zantroke-webfont.eot") format('embedded-opentype'),
+    url("./fonts/zantroke-webfont.ttf") format('truetype'),
+    url("./fonts/zantroke-webfont.woff") format('woff'),
+    url("./fonts/zantroke-webfont.woff2") format('woff2');
+    font-weight: bold;
+    /*font-style: italic;*/
+}
+
+html {
+    font-size: 10px;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+body {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Typography */
+h1, h2 {
+    font-family: zantrokeregular, serif;
+}
+
+h1 {
+    font-size: 3.2rem;
+}
+
+h2 {
+    font-size: 2.4rem;
+}
+
+p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    word-spacing: 0.6rem;
+    font-family: 'Barlow', ciclefina, sans-serif;
+}
