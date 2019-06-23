@@ -1,20 +1,20 @@
 /* General setup */
 @font-face {
     font-family: 'ciclefina';
-    src: url("./fonts/cicle_fina-webfont.eot") format('embedded-opentype'),
-    url("./fonts/cicle_fina-webfont.ttf") format('truetype'),
-    url("./fonts/cicle_fina-webfont.woff") format('woff'),
-    url("./fonts/cicle_fina-webfont.woff2") format('woff2');
+    src: url("fonts/cicle_fina-webfont.eot") format('embedded-opentype'),
+    url("fonts/cicle_fina-webfont.ttf") format('truetype'),
+    url("fonts/cicle_fina-webfont.woff") format('woff'),
+    url("fonts/cicle_fina-webfont.woff2") format('woff2');
     font-style: italic;
     font-weight: bold;
 }
 
 @font-face {
     font-family: 'zantrokeregular';
-    src: url("./fonts/zantroke-webfont.eot") format('embedded-opentype'),
-    url("./fonts/zantroke-webfont.ttf") format('truetype'),
-    url("./fonts/zantroke-webfont.woff") format('woff'),
-    url("./fonts/zantroke-webfont.woff2") format('woff2');
+    src: url("fonts/zantroke-webfont.eot") format('embedded-opentype'),
+    url("fonts/zantroke-webfont.ttf") format('truetype'),
+    url("fonts/zantroke-webfont.woff") format('woff'),
+    url("fonts/zantroke-webfont.woff2") format('woff2');
     font-weight: bold;
     /*font-style: italic;*/
 }
