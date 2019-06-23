@@ -2,7 +2,7 @@ import React, {FC, useEffect, useState} from 'react';
 
 export const App: FC = () => {
     const [weight, setWeight] = useState(5);
-    const [rate, setRate] = useState(4);
+    const [rate, setRate] = useState(3);
 
     useEffect(() => {
         document.title = '主子生骨肉计算器'
@@ -45,18 +45,41 @@ export const App: FC = () => {
                 <table>
                     <thead>
                     <tr>
-                        <th>肉类</th>
-                        <th>内脏</th>
-                        <th>骨骼</th>
-                        <th>蛋壳粉（骨骼替换品）</th>
+                        <th></th>
+                        <th scope='col'>肉类</th>
+                        <th scope='col'>内脏</th>
+                        <th scope='col'>骨骼</th>
+                        <th scope='col'>蛋壳粉（骨骼替换品）</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
+                        <th scope='row'>一天总量</th>
                         <td>{meat}g</td>
                         <td>{viscera}g</td>
                         <td>{skeleton}g</td>
                         <td>{ca}g</td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>五天总量</th>
+                        <td>{meat * 5}g</td>
+                        <td>{viscera * 5}g</td>
+                        <td>{skeleton * 5}g</td>
+                        <td>{ca * 5}g</td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>七天总量</th>
+                        <td>{meat * 7}g</td>
+                        <td>{viscera * 7}g</td>
+                        <td>{skeleton * 7}g</td>
+                        <td>{ca * 7}g</td>
+                    </tr>
+                    <tr>
+                        <th scope='row'>30天总量</th>
+                        <td>{meat * 30}g</td>
+                        <td>{viscera * 30}g</td>
+                        <td>{skeleton * 30}g</td>
+                        <td>{ca * 30}g</td>
                     </tr>
                     </tbody>
                 </table>
