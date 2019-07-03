@@ -1,0 +1,25 @@
+button {
+  width: 150px;
+  padding: 10px;
+  font-size: 1.1rem;
+  line-height: 2;
+
+  border: none {
+    radius: 10px;
+  };
+
+  background: {
+    image: linear-gradient(to bottom, orange, pink);
+    color: #0f0;
+  };
+  box-shadow: inset 10px 10px 6px red;
+
+  &:focus, &:hover {
+    background-image: linear-gradient(to bottom, pink, orange);
+    outline: none;
+  }
+
+  &:active {
+    box-shadow: 10px 10px 10px red;
+  }
+}

@@ -1,0 +1,17 @@
+p {
+  margin: 0;
+}
+
+article {
+  max-width: 500px;
+  padding: 10px;
+  background: {
+    color: green;
+    image: linear-gradient(to bottom, blue, green);
+  }
+}
+
+.multiple {
+  box-shadow: 1px 1px 1px red,
+  5px 5px 2px black;
+}

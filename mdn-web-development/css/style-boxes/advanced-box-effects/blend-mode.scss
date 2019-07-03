@@ -1,0 +1,51 @@
+%div {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+  margin: 10px;
+  background: {
+    color: green;
+    image: url("colorful-heart.png");
+  };
+}
+
+.blend-mode > div {
+  @extend %div;
+
+  &:last-child {
+    background-blend-mode: color-dodge;
+  }
+}
+
+article {
+  width: 250px;
+  height: 250px;
+  margin: 10px;
+  position: relative;
+  display: inline-block;
+
+  div {
+    @extend %div;
+    position: absolute;
+
+    &:first-child {
+      top: 10px;
+      left: 0;
+      background: url('colorful-heart.png') no-repeat center 20px;
+      background-color: green;
+    }
+
+    &:last-child {
+      top: -10px;
+      right: 0;
+      background: purple;
+      z-index: -1;
+    }
+  }
+
+}
+
+.mix {
+  mix-blend-mode: multiply;
+  //background-blend-mode: multiply;
+}
